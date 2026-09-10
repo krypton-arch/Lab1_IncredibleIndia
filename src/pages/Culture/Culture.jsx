@@ -4,7 +4,7 @@ import './Culture.css';
 const cultureStats = [
   { value: '5,000+', label: 'Years of Unbroken Tradition' },
   { value: '8', label: 'Recognised Classical Dances' },
-  { value: '43', label: 'UNESCO World Heritage Sites' },
+  { value: '40+', label: 'UNESCO World Heritage Sites' },
   { value: '19,500+', label: 'Mother Tongues & Dialects' }
 ];
 
@@ -147,6 +147,107 @@ const instruments = [
   { id: 'mridangam', name: 'Mridangam', family: 'Percussion' },
   { id: 'shehnai', name: 'Shehnai', family: 'Double reed' },
   { id: 'santoor', name: 'Santoor', family: 'Hammered string' }
+];
+
+const traditionalClothing = [
+  {
+    id: 'saree',
+    name: 'Saree',
+    region: 'Nationwide',
+    text: 'A single unstitched length of five to nine yards, draped in more than eighty regional styles. The Nivi drape is the most common; Bengal, Maharashtra and Tamil Nadu each keep their own.',
+    weave: 'Banarasi • Kanjeevaram • Jamdani'
+  },
+  {
+    id: 'kurta',
+    name: 'Kurta & Churidar',
+    region: 'North India',
+    text: 'A loose knee-length tunic over tapered trousers gathered at the ankle. Worn by all genders, and the most durable everyday survivor of pre-colonial dress.',
+    weave: 'Cotton • Khadi • Chikankari'
+  },
+  {
+    id: 'lehenga',
+    name: 'Lehenga Choli',
+    region: 'Rajasthan & Gujarat',
+    text: 'A full pleated skirt with fitted blouse and draped dupatta. Desert traditions load it with mirror-work, bandhani tie-dye and dense hand embroidery.',
+    weave: 'Bandhani • Gota Patti • Zardozi'
+  },
+  {
+    id: 'dhoti',
+    name: 'Dhoti & Veshti',
+    region: 'Pan-Indian, esp. the South',
+    text: 'Unstitched cloth wrapped at the waist and knotted, worn plain white with a coloured border for temple visits and formal south Indian occasions.',
+    weave: 'Handloom cotton • Silk border'
+  },
+  {
+    id: 'sherwani',
+    name: 'Sherwani',
+    region: 'North India',
+    text: 'A long fitted coat that entered the subcontinent through Mughal and later Awadhi courts, now the standard formal wear for grooms across religions.',
+    weave: 'Brocade • Silk • Velvet'
+  },
+  {
+    id: 'mekhela',
+    name: 'Mekhela Chador',
+    region: 'Assam',
+    text: 'Two pieces worn together — a cylindrical lower skirt and an upper drape — traditionally woven in golden muga silk produced only in Assam.',
+    weave: 'Muga • Pat • Eri silk'
+  }
+];
+
+const monuments = [
+  {
+    id: 'taj-mahal',
+    name: 'Taj Mahal',
+    place: 'Agra, Uttar Pradesh',
+    period: '1632 – 1653',
+    text: 'A white marble mausoleum built by Shah Jahan for Mumtaz Mahal. Its symmetry is exact in every axis but one: his own cenotaph, added later, breaks it.'
+  },
+  {
+    id: 'qutub-minar',
+    name: 'Qutub Minar',
+    place: 'Delhi',
+    period: '1199 – 1220',
+    text: 'A 73-metre fluted sandstone tower, the tallest brick minaret in the world, ringed by bands of Quranic calligraphy cut directly into the stone.'
+  },
+  {
+    id: 'konark',
+    name: 'Konark Sun Temple',
+    place: 'Konark, Odisha',
+    period: '13th century',
+    text: 'Conceived as the sun god\u2019s chariot: twenty-four carved stone wheels and seven horses, with the wheels precise enough to be read as sundials.'
+  },
+  {
+    id: 'khajuraho',
+    name: 'Khajuraho Temples',
+    place: 'Chhatarpur, Madhya Pradesh',
+    period: '950 – 1050',
+    text: 'Chandela-era temples in sandstone, celebrated for sculpture that treats devotion, labour and desire as parts of a single continuous surface.'
+  },
+  {
+    id: 'red-fort',
+    name: 'Red Fort',
+    place: 'Delhi',
+    period: '1638 – 1648',
+    text: 'The Mughal seat of power in Shahjahanabad, and the site from which the Prime Minister addresses the nation every Independence Day.'
+  },
+  {
+    id: 'hawa-mahal',
+    name: 'Hawa Mahal',
+    place: 'Jaipur, Rajasthan',
+    period: '1799',
+    text: 'A five-storey screen of 953 small windows, built so the women of the court could watch the street below without being seen from it.'
+  }
+];
+
+const heritageSites = [
+  { id: 'ajanta', name: 'Ajanta & Ellora Caves', state: 'Maharashtra', year: '1983', kind: 'Cultural' },
+  { id: 'hampi', name: 'Group of Monuments at Hampi', state: 'Karnataka', year: '1986', kind: 'Cultural' },
+  { id: 'mahabalipuram', name: 'Monuments at Mahabalipuram', state: 'Tamil Nadu', year: '1984', kind: 'Cultural' },
+  { id: 'sanchi', name: 'Buddhist Monuments at Sanchi', state: 'Madhya Pradesh', year: '1989', kind: 'Cultural' },
+  { id: 'jaipur', name: 'Walled City of Jaipur', state: 'Rajasthan', year: '2019', kind: 'Cultural' },
+  { id: 'kaziranga', name: 'Kaziranga National Park', state: 'Assam', year: '1985', kind: 'Natural' },
+  { id: 'sundarbans', name: 'Sundarbans National Park', state: 'West Bengal', year: '1987', kind: 'Natural' },
+  { id: 'western-ghats', name: 'Western Ghats', state: 'Six states', year: '2012', kind: 'Natural' }
 ];
 
 /**
@@ -410,6 +511,122 @@ export default function Culture() {
               </li>
             ))}
           </ul>
+        </div>
+      </section>
+
+      {/* ============ Traditional Clothing ============ */}
+      <section className="culture-section" aria-labelledby="clothing-heading">
+        <div className="container">
+          <div className="culture-section__head">
+            <span className="badge badge-green">Textile</span>
+            <h2 className="section-title" id="clothing-heading">
+              Traditional Clothing
+            </h2>
+            <p className="section-subtitle">
+              Indian dress is largely a tradition of draping rather than tailoring, and the cloth
+              itself &mdash; who wove it, and where &mdash; usually matters more than the cut.
+            </p>
+          </div>
+
+          <div className="clothing-grid">
+            {traditionalClothing.map((item) => (
+              <article key={item.id} className="clothing-card">
+                <div className="clothing-card__top">
+                  <h3 className="clothing-card__name">{item.name}</h3>
+                  <span className="clothing-card__region">{item.region}</span>
+                </div>
+                <p className="clothing-card__text">{item.text}</p>
+                <p className="clothing-card__weave">
+                  <span className="clothing-card__weave-label">Typical weaves</span>
+                  {item.weave}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ============ Historical Monuments ============ */}
+      <section
+        className="culture-section culture-section--tinted"
+        aria-labelledby="monuments-heading"
+      >
+        <div className="container">
+          <div className="culture-section__head">
+            <span className="badge badge-saffron">Built Heritage</span>
+            <h2 className="section-title" id="monuments-heading">
+              Historical Monuments
+            </h2>
+            <p className="section-subtitle">
+              Temple, fort, tomb and observatory &mdash; the subcontinent&rsquo;s architecture
+              records every dynasty that governed it, usually by building over the last one.
+            </p>
+          </div>
+
+          <div className="monument-grid">
+            {monuments.map((monument) => (
+              <article key={monument.id} className="monument-card">
+                <div className="monument-card__arch" aria-hidden="true">
+                  <span className="monument-card__period">{monument.period}</span>
+                </div>
+                <div className="monument-card__body">
+                  <h3 className="monument-card__name">{monument.name}</h3>
+                  <p className="monument-card__place">{monument.place}</p>
+                  <p className="monument-card__text">{monument.text}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ============ Heritage Sites ============ */}
+      <section className="culture-section" aria-labelledby="heritage-heading">
+        <div className="container">
+          <div className="culture-section__head">
+            <span className="badge badge-green">UNESCO Inscribed</span>
+            <h2 className="section-title" id="heritage-heading">
+              Heritage Sites
+            </h2>
+            <p className="section-subtitle">
+              India carries more than forty World Heritage Sites. A selection is listed below with
+              the year each was inscribed.
+            </p>
+          </div>
+
+          <div className="heritage-table-wrap">
+            <table className="heritage-table">
+              <caption className="heritage-table__caption">
+                Selected UNESCO World Heritage Sites in India
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">Site</th>
+                  <th scope="col">State</th>
+                  <th scope="col">Category</th>
+                  <th scope="col">Inscribed</th>
+                </tr>
+              </thead>
+              <tbody>
+                {heritageSites.map((site) => (
+                  <tr key={site.id}>
+                    <th scope="row" className="heritage-table__name">
+                      {site.name}
+                    </th>
+                    <td>{site.state}</td>
+                    <td>
+                      <span
+                        className={`heritage-kind heritage-kind--${site.kind.toLowerCase()}`}
+                      >
+                        {site.kind}
+                      </span>
+                    </td>
+                    <td className="heritage-table__year">{site.year}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </section>
     </div>
