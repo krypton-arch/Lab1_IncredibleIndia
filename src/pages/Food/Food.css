@@ -9,6 +9,7 @@
 }
 
 .food-page h1, .food-page h2, .food-page h3, .food-page p { margin: 0; }
+.food-page a:focus-visible, .food-page button:focus-visible { outline: 3px solid #ffd06b; outline-offset: 4px; }
 
 .food-hero {
   isolation: isolate;
@@ -144,4 +145,11 @@
   .food-filter { gap: 0.45rem; }
   .food-filter-button { padding: 0.48rem 0.65rem; font-size: 0.78rem; }
   .regional-cuisine-content, .food-spice-panel { padding: 1.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .food-page *, .food-page *::before, .food-page *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }
