@@ -1,29 +1,191 @@
+/* ===================================================================
+   Culture & Heritage — Student 3 (Arpan)
+   Built on the shared design tokens defined in src/index.css.
+   Visuals use CSS gradients + inline SVG only (no external images),
+   so the page renders identically offline and never shifts layout.
+   =================================================================== */
+
 .culture-page {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 50vh;
+  --culture-ink: var(--color-secondary);
+  --culture-warm: #FFF7ED;
+  --culture-line: var(--border-subtle);
 }
 
-.culture-page .placeholder-banner {
+/* ---------- Shared section rhythm ---------- */
+
+.culture-section {
+  padding: 5rem 0;
+}
+
+.culture-section--tinted {
+  background: linear-gradient(180deg, var(--culture-warm) 0%, var(--bg-main) 100%);
+}
+
+.culture-section__head {
   text-align: center;
-  background: white;
-  padding: 3rem 2rem;
-  border-radius: var(--radius-lg);
-  border: 1px dashed var(--border-subtle);
-  box-shadow: var(--shadow-sm);
-  max-width: 600px;
+  margin-bottom: 3rem;
 }
 
-.culture-page .placeholder-banner h1 {
+.culture-section__head .section-title {
+  margin-top: 0.85rem;
+}
+
+/* ---------- Hero ---------- */
+
+.culture-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 18% 20%, rgba(255, 119, 34, 0.28) 0%, transparent 55%),
+    radial-gradient(circle at 82% 75%, rgba(234, 179, 8, 0.18) 0%, transparent 55%),
+    linear-gradient(135deg, var(--color-secondary) 0%, var(--color-secondary-light) 100%);
+  color: var(--text-light);
+  padding: 6rem 0 4.5rem;
+}
+
+/* Chakra-inspired spoke motif, drawn with conic + repeating gradients. */
+.culture-hero__pattern {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: repeating-conic-gradient(
+    from 0deg at 85% 15%,
+    rgba(255, 255, 255, 0.05) 0deg 4deg,
+    transparent 4deg 15deg
+  );
+  opacity: 0.9;
+}
+
+.culture-hero__inner {
+  position: relative;
+  text-align: center;
+}
+
+.culture-hero__eyebrow {
+  display: inline-block;
+  padding: 0.5rem 1.15rem;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.08);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.culture-hero__title {
   font-family: var(--font-serif);
-  color: var(--color-secondary);
-  margin: 1rem 0;
-  font-size: 2rem;
+  font-size: clamp(2.5rem, 6vw, 4.25rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 1.5rem 0 0;
 }
 
-.culture-page .placeholder-desc {
+.culture-hero__accent {
+  color: var(--color-gold);
+  font-style: italic;
+}
+
+.culture-hero__lead {
+  max-width: 680px;
+  margin: 1.5rem auto 0;
+  font-size: 1.1rem;
+  color: rgba(248, 250, 252, 0.86);
+}
+
+.culture-hero__stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  margin-top: 3.5rem;
+}
+
+.culture-stat {
+  padding: 1.4rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(6px);
+}
+
+.culture-stat__value {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: var(--color-gold);
+}
+
+.culture-stat__label {
+  display: block;
+  margin: 0.35rem 0 0;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: rgba(248, 250, 252, 0.78);
+}
+
+/* ---------- Introduction ---------- */
+
+.culture-intro__grid {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.culture-intro__lead-card {
+  padding: 2.25rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--culture-line);
+  border-left: 5px solid var(--color-primary);
+  background: var(--bg-card);
+  box-shadow: var(--shadow-sm);
+}
+
+.culture-intro__lead-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  color: var(--culture-ink);
+  margin-bottom: 1rem;
+}
+
+.culture-intro__lead-card p + p {
+  margin-top: 1rem;
+}
+
+.culture-intro__lead-card p {
   color: var(--text-muted);
-  margin-top: 0.5rem;
-  font-size: 0.95rem;
+}
+
+.culture-pillars {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  list-style: none;
+}
+
+.culture-pillar {
+  padding: 1.5rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--culture-line);
+  background: var(--bg-card);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.culture-pillar:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.culture-pillar__title {
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--culture-ink);
+  margin-bottom: 0.45rem;
+}
+
+.culture-pillar__text {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--text-muted);
 }
