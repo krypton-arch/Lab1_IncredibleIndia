@@ -205,6 +205,11 @@ export default function Food() {
             ))}
           </div>
           <p className="food-results-count" aria-live="polite">Showing {visibleDishes.length} {visibleDishes.length === 1 ? 'dish' : 'dishes'}{selectedRegion !== 'all' && ` from ${regions.find((region) => region.id === selectedRegion)?.label}`}.</p>
+          {selectedRegion !== 'all' && (
+            <button type="button" className="food-reset-filter" onClick={() => setSelectedRegion('all')}>
+              Show all flavours
+            </button>
+          )}
           <div className="food-dishes-grid">
             {visibleDishes.map((dish) => (
               <article className="food-dish-card" key={dish.id}>
