@@ -189,3 +189,262 @@
   line-height: 1.55;
   color: var(--text-muted);
 }
+
+/* ---------- Festivals ---------- */
+
+.festival-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.festival-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--culture-line);
+  background: var(--bg-card);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.festival-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Gradient "art" block stands in for a photograph. Fixed aspect ratio keeps
+   the grid from shifting as the page paints. */
+.festival-card__art {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 7;
+  color: rgba(255, 255, 255, 0.95);
+  background: linear-gradient(135deg, var(--art-from) 0%, var(--art-to) 100%);
+}
+
+.festival-card__art svg {
+  width: 54px;
+  height: 54px;
+}
+
+.festival-card--lamp    { --art-from: #B45309; --art-to: #F59E0B; }
+.festival-card--colour  { --art-from: #BE185D; --art-to: #7C3AED; }
+.festival-card--idol    { --art-from: #9A3412; --art-to: #DC2626; }
+.festival-card--crescent{ --art-from: #065F46; --art-to: #10B981; }
+.festival-card--floral  { --art-from: #15803D; --art-to: #84CC16; }
+.festival-card--harvest { --art-from: #A16207; --art-to: #FACC15; }
+
+.festival-card__body {
+  padding: 1.5rem;
+}
+
+.festival-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.festival-card__season,
+.festival-card__region {
+  padding: 0.25rem 0.7rem;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.festival-card__season {
+  background: #FFF7ED;
+  color: #9A3412;
+  border: 1px solid #FFEDD5;
+}
+
+.festival-card__region {
+  background: #F1F5F9;
+  color: #475569;
+  border: 1px solid var(--culture-line);
+}
+
+.festival-card__name {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  color: var(--culture-ink);
+  margin-bottom: 0.5rem;
+}
+
+.festival-card__text {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+/* ---------- Traditional Dance ---------- */
+
+.dance-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  list-style: none;
+  counter-reset: dance;
+}
+
+.dance-card {
+  position: relative;
+  display: flex;
+  gap: 1rem;
+  padding: 1.75rem 1.5rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--culture-line);
+  background: var(--bg-card);
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.dance-card:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-4px);
+}
+
+.dance-card__index {
+  flex-shrink: 0;
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #FDBA74;
+}
+
+.dance-card__name {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  color: var(--culture-ink);
+}
+
+.dance-card__origin {
+  display: inline-block;
+  margin: 0.3rem 0 0.6rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.dance-card__text {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+/* ---------- Music ---------- */
+
+.music-split {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3.5rem;
+}
+
+.music-card {
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--culture-line);
+  background: var(--bg-card);
+  box-shadow: var(--shadow-sm);
+}
+
+.music-card__head {
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--culture-warm);
+}
+
+.music-card__name {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  color: var(--culture-ink);
+}
+
+.music-card__scope {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.music-card__text {
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+}
+
+.music-card__points {
+  list-style: none;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.music-card__points li {
+  position: relative;
+  padding-left: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--text-main);
+}
+
+/* Diamond bullet drawn in CSS so no icon font is needed. */
+.music-card__points li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.45em;
+  width: 8px;
+  height: 8px;
+  background: var(--color-primary);
+  transform: rotate(45deg);
+}
+
+.instruments-heading {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  text-align: center;
+  color: var(--culture-ink);
+  margin-bottom: 1.5rem;
+}
+
+.instrument-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.85rem;
+  list-style: none;
+}
+
+.instrument-chip {
+  padding: 0.7rem 1.25rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--culture-line);
+  background: var(--bg-card);
+  text-align: center;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.instrument-chip:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+.instrument-chip__name {
+  display: block;
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--culture-ink);
+}
+
+.instrument-chip__family {
+  display: block;
+  font-size: 0.74rem;
+  color: var(--text-muted);
+}
