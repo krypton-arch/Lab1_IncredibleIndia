@@ -42,6 +42,39 @@ export default function Home() {
     }
   ];
 
+  const explorePages = [
+    {
+      title: 'Destinations of India',
+      author: 'Curated by Abhishek',
+      route: '/destinations',
+      badge: 'Geographic Splendor',
+      badgeColor: 'badge-saffron',
+      description: 'Explore the majestic Himalayan heights of the North, coastal serenity of the South, verdant valleys of the East, and royal deserts of the West.',
+      cta: 'Explore All Regions',
+      icon: '🗺️'
+    },
+    {
+      title: 'Culture & Heritage',
+      author: 'Curated by Arpan',
+      route: '/culture',
+      badge: 'Living Traditions',
+      badgeColor: 'badge-green',
+      description: 'Dive deep into classical dances, spiritual festivals like Diwali & Holi, magnificent ancient temples, and age-old artisan craftsmanship.',
+      cta: 'Discover Traditions',
+      icon: '🪔'
+    },
+    {
+      title: 'Food & Cuisine',
+      author: 'Curated by Joshua',
+      route: '/food',
+      badge: 'Culinary Journey',
+      badgeColor: 'badge-saffron',
+      description: 'Embark on a gastronomic expedition through rich gravies, fragrant biryanis, crispy dosas, coastal seafood, and delectable regional sweets.',
+      cta: 'Taste the Magic',
+      icon: '🍛'
+    }
+  ];
+
   return (
     <div className="home-page">
       {/* Hero Section */}
@@ -165,6 +198,84 @@ export default function Home() {
                   <h3 className="card-title">{dest.title}</h3>
                   <p className="card-description">{dest.description}</p>
                 </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Short Culture & Cuisine Introduction Teaser */}
+      <section className="culture-cuisine-teaser">
+        <div className="container">
+          <div className="teaser-grid">
+            {/* Culture Spotlight */}
+            <div className="teaser-card culture-teaser">
+              <span className="badge badge-green">Culture & Heritage</span>
+              <h2>The Living Spirit of Indian Culture</h2>
+              <p>
+                Indian culture is a continuous stream over millennia. Across classical arts like Bharatanatyam and Kathakali, 
+                soulful ragas of Hindustani and Carnatic traditions, colorful hand-woven silks, and festivals like Diwali, Eid, 
+                and Durga Puja, culture in India is a shared tapestry of spirituality, music, and art.
+              </p>
+              <ul className="teaser-features">
+                <li>✨ 8 classical dance traditions recognized worldwide</li>
+                <li>✨ Over 19,500 mother tongues and dialects</li>
+                <li>✨ Millennia-old architectural marvels and rock-cut temples</li>
+              </ul>
+              <Link to="/culture" className="btn btn-outline teaser-btn">
+                <span>Explore Culture & Heritage</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </Link>
+            </div>
+
+            {/* Cuisine Spotlight */}
+            <div className="teaser-card cuisine-teaser">
+              <span className="badge badge-saffron">Flavors & Cuisine</span>
+              <h2>An Alchemy of Spices & Regional Delights</h2>
+              <p>
+                Indian gastronomy is celebrated worldwide for its masterful harmonization of spices. 
+                Each geographic region offers its own signature identity: from rich, creamy gravies of Punjab to fiery coconut curries 
+                of Chettinad, steaming Idlis with sambar, and mouth-watering street food from Chandni Chowk to Chowpatty.
+              </p>
+              <ul className="teaser-features">
+                <li>🌶️ World’s leading spice producer and exporter</li>
+                <li>🍛 Distinctive regional thalis balancing all six Ayurvedic tastes</li>
+                <li>🍯 Decadent sweets from Gulab Jamun to Rasgulla and Mysore Pak</li>
+              </ul>
+              <Link to="/food" className="btn btn-outline teaser-btn">
+                <span>Discover Indian Cuisine</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Links/Cards Leading to Other Pages */}
+      <section className="portal-section">
+        <div className="container">
+          <div className="portal-header">
+            <span className="badge badge-saffron">Connected Sections</span>
+            <h2 className="section-title">Explore the Incredible India Journey</h2>
+            <p className="section-subtitle">
+              Navigate seamlessly across each specialized showcase crafted collaboratively by our team.
+            </p>
+          </div>
+
+          <div className="portal-grid">
+            {explorePages.map((page, index) => (
+              <div key={index} className="portal-card">
+                <div className="portal-top">
+                  <span className="portal-icon">{page.icon}</span>
+                  <span className={`badge ${page.badgeColor}`}>{page.badge}</span>
+                </div>
+                <h3 className="portal-title">{page.title}</h3>
+                <span className="portal-author">{page.author}</span>
+                <p className="portal-desc">{page.description}</p>
+                <Link to={page.route} className="btn btn-primary portal-btn">
+                  <span>{page.cta}</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </Link>
               </div>
             ))}
           </div>
