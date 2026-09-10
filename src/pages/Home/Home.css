@@ -1,0 +1,26 @@
+.home-container {
+  padding: 4rem 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-placeholder {
+  text-align: center;
+  max-width: 700px;
+}
+
+.hero-placeholder h1 {
+  font-family: var(--font-serif);
+  font-size: 2.75rem;
+  color: var(--color-secondary);
+  margin-bottom: 1rem;
+}
+
+.hero-placeholder p {
+  color: var(--text-muted);
+  font-size: 1.15rem;
+}

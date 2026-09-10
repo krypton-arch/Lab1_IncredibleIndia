@@ -1,0 +1,29 @@
+.destinations-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+}
+
+.placeholder-banner {
+  text-align: center;
+  background: white;
+  padding: 3rem 2rem;
+  border-radius: var(--radius-lg);
+  border: 1px dashed var(--border-subtle);
+  box-shadow: var(--shadow-sm);
+  max-width: 600px;
+}
+
+.placeholder-banner h1 {
+  font-family: var(--font-serif);
+  color: var(--color-secondary);
+  margin: 1rem 0;
+  font-size: 2rem;
+}
+
+.placeholder-desc {
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+}
