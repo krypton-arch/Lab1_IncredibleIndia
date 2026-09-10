@@ -19,7 +19,7 @@ export default function Navbar() {
         <div className="navbar-brand">
           <Link to="/" onClick={closeMenu} className="brand-logo">
             <span className="brand-chakra">☸</span>
-            <span className="brand-text">Incredible India — Explore</span>
+            <span className="brand-text">Incredible India</span>
           </Link>
         </div>
 
