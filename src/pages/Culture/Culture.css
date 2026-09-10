@@ -689,3 +689,143 @@
   color: #166534;
   border: 1px solid #DCFCE7;
 }
+
+/* ===================================================================
+   Accessibility
+   =================================================================== */
+
+/* Keyboard focus must stay visible everywhere on this page. The ring is
+   drawn with outline + offset so it never overlaps card content. */
+.culture-page a:focus-visible,
+.culture-page button:focus-visible,
+.culture-page [tabindex]:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+.culture-hero a:focus-visible {
+  outline-color: var(--color-gold);
+}
+
+/* Honour a reduced-motion preference: keep colour transitions, drop the
+   translation and any transform-based lift. */
+@media (prefers-reduced-motion: reduce) {
+  .culture-page *,
+  .culture-page *::before,
+  .culture-page *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .culture-pillar:hover,
+  .festival-card:hover,
+  .dance-card:hover,
+  .clothing-card:hover,
+  .monument-card:hover,
+  .instrument-chip:hover {
+    transform: none;
+  }
+}
+
+/* ===================================================================
+   Responsive layout
+   Breakpoints match those already used by the Navbar, Footer and Home
+   page (900px / 768px) so the whole site steps down together.
+   =================================================================== */
+
+@media (max-width: 1024px) {
+  .festival-grid,
+  .dance-grid,
+  .clothing-grid,
+  .monument-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .culture-section {
+    padding: 3.5rem 0;
+  }
+
+  .culture-hero {
+    padding: 4.5rem 0 3.5rem;
+  }
+
+  .culture-intro__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .music-split {
+    grid-template-columns: 1fr;
+    margin-bottom: 2.5rem;
+  }
+
+  .culture-hero__stats {
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .festival-grid,
+  .dance-grid,
+  .clothing-grid,
+  .monument-grid,
+  .culture-pillars {
+    grid-template-columns: 1fr;
+  }
+
+  .culture-hero__lead,
+  .section-subtitle {
+    font-size: 1rem;
+  }
+
+  .culture-intro__lead-card,
+  .music-card {
+    padding: 1.5rem;
+  }
+
+  .culture-section__head {
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .culture-hero__stats {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .culture-stat {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    padding: 0.9rem 1rem;
+    text-align: left;
+  }
+
+  .culture-stat__value {
+    font-size: 1.4rem;
+  }
+
+  .culture-stat__label {
+    margin-top: 0;
+  }
+
+  .festival-card__body,
+  .monument-card__body,
+  .clothing-card {
+    padding: 1.25rem;
+  }
+
+  .instrument-list {
+    gap: 0.6rem;
+  }
+
+  .instrument-chip {
+    padding: 0.55rem 1rem;
+  }
+}
