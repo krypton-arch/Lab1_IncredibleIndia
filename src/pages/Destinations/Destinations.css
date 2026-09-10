@@ -275,9 +275,16 @@
 .card-image-wrapper {
   position: relative;
   width: 100%;
+  aspect-ratio: 16 / 10;
   height: 220px;
   background: #E2E8F0;
   overflow: hidden;
+}
+
+@supports (aspect-ratio: 16 / 10) {
+  .card-image-wrapper {
+    height: auto;
+  }
 }
 
 .card-image {
