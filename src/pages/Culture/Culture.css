@@ -448,3 +448,244 @@
   font-size: 0.74rem;
   color: var(--text-muted);
 }
+
+/* ---------- Traditional Clothing ---------- */
+
+.clothing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.clothing-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.75rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--culture-line);
+  background: var(--bg-card);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.clothing-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.clothing-card__top {
+  padding-bottom: 0.85rem;
+  margin-bottom: 0.85rem;
+  border-bottom: 1px dashed var(--culture-line);
+}
+
+.clothing-card__name {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  color: var(--culture-ink);
+}
+
+.clothing-card__region {
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.clothing-card__text {
+  flex: 1;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin-bottom: 1.1rem;
+}
+
+.clothing-card__weave {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+.clothing-card__weave-label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.2rem;
+}
+
+/* ---------- Historical Monuments ---------- */
+
+.monument-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.monument-card {
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--culture-line);
+  background: var(--bg-card);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.monument-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* A stylised Mughal arch silhouette, cut from a gradient panel with
+   a radial mask. Reserves its own height, so nothing reflows. */
+.monument-card__arch {
+  position: relative;
+  display: grid;
+  place-items: end center;
+  height: 110px;
+  padding-bottom: 0.9rem;
+  background:
+    radial-gradient(ellipse 62% 88% at 50% 100%, rgba(255, 255, 255, 0.22) 0%, transparent 70%),
+    linear-gradient(135deg, var(--color-secondary) 0%, var(--color-secondary-light) 100%);
+}
+
+.monument-card__arch::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 72px;
+  height: 88px;
+  transform: translateX(-50%);
+  border: 2px solid rgba(234, 179, 8, 0.55);
+  border-bottom: none;
+  border-radius: 50% 50% 0 0 / 60% 60% 0 0;
+}
+
+.monument-card__period {
+  position: relative;
+  padding: 0.25rem 0.8rem;
+  border-radius: var(--radius-full);
+  background: rgba(10, 25, 47, 0.75);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--color-gold);
+}
+
+.monument-card__body {
+  padding: 1.5rem;
+}
+
+.monument-card__name {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  color: var(--culture-ink);
+}
+
+.monument-card__place {
+  margin: 0.25rem 0 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.monument-card__text {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+/* ---------- Heritage Sites ---------- */
+
+/* The table is allowed to scroll sideways on small screens rather than
+   collapsing, so the row relationships stay intact. */
+.heritage-table-wrap {
+  overflow-x: auto;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--culture-line);
+  background: var(--bg-card);
+  box-shadow: var(--shadow-sm);
+}
+
+.heritage-table {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.heritage-table__caption {
+  padding: 1.15rem 1.5rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-align: left;
+  border-bottom: 1px solid var(--culture-line);
+}
+
+.heritage-table thead th {
+  padding: 0.9rem 1.5rem;
+  background: var(--culture-warm);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #9A3412;
+}
+
+.heritage-table tbody tr {
+  border-top: 1px solid var(--culture-line);
+  transition: background-color 0.2s ease;
+}
+
+.heritage-table tbody tr:hover {
+  background: #FFFBF5;
+}
+
+.heritage-table td,
+.heritage-table tbody th {
+  padding: 1rem 1.5rem;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.heritage-table__name {
+  color: var(--culture-ink);
+  font-weight: 600;
+}
+
+.heritage-table__year {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  color: var(--culture-ink);
+}
+
+.heritage-kind {
+  display: inline-block;
+  padding: 0.22rem 0.7rem;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.heritage-kind--cultural {
+  background: #FFF7ED;
+  color: #9A3412;
+  border: 1px solid #FFEDD5;
+}
+
+.heritage-kind--natural {
+  background: #F0FDF4;
+  color: #166534;
+  border: 1px solid #DCFCE7;
+}
